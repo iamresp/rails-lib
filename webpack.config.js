@@ -59,17 +59,22 @@ module.exports = {
                 ],
 
             },
+            {
+                test: /\.(woff|woff2|eot|ttf)$/,
+                type: 'asset/resource',
+            },
         ],
     },
     plugins: [
-        new HTMLWebpackPlugin({
+        // целевое решение -- встраиваемая библиотека
+        !isProduction && new HTMLWebpackPlugin({
             template: './public/index.html',
             favicon: './public/favicon.ico',
         }),
-        new CleanWebpackPlugin(),
         !isProduction && new ESLintPlugin({
             extensions: ['ts', 'tsx'],
         }),
+        isProduction && new CleanWebpackPlugin(),
     ].filter(Boolean),
     output: {
         path: path.resolve(__dirname, 'dist'),

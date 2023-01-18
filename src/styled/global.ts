@@ -1,6 +1,46 @@
 import { createGlobalStyle } from 'styled-components';
 
+export const fonts = `
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+        url('${require('../assets/fonts/roboto-v30-latin_cyrillic-regular.woff2')}') format('woff2'),
+        url('${require('../assets/fonts/roboto-v30-latin_cyrillic-regular.woff')}') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    src: local(''),
+        url('${require('../assets/fonts/roboto-v30-latin_cyrillic-italic.woff2')}') format('woff2'),
+        url('${require('../assets/fonts/roboto-v30-latin_cyrillic-italic.woff')}') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+        url('${require('../assets/fonts/roboto-v30-latin_cyrillic-700.woff2')}') format('woff2'),
+        url('${require('../assets/fonts/roboto-v30-latin_cyrillic-700.woff')}') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 700;
+    src: local(''),
+        url('${require('../assets/fonts/roboto-v30-latin_cyrillic-700italic.woff2')}') format('woff2'),
+        url('${require('../assets/fonts/roboto-v30-latin_cyrillic-700italic.woff')}') format('woff');
+  }
+`;
+
 export const GlobalStyle = createGlobalStyle`
+  ${fonts}
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -9,5 +49,9 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 16px;
+  }
+
+  html, input, button {
+    font-family: Roboto;
   }
 `;

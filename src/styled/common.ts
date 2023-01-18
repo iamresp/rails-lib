@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { C_OVERLAY, C_PRIMARY, C_WHITE } from '@/constants/colors';
+import { C_OVERLAY_50, C_PRIMARY, C_WHITE } from '@/constants/colors';
 
 export const Overlay = styled.div`
   width: 100vw;
@@ -13,7 +13,7 @@ export const Overlay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${C_OVERLAY};
+  background-color: ${C_OVERLAY_50};
   backdrop-filter: blur(7px);
 `;
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { C_WHITE, C_BORDER } from '@/constants/colors';
+import { C_WHITE, C_BORDER, C_OVERLAY_25 } from '@/constants/colors';
 
 export const ModalContainer = styled.div`
   max-width: 1200px;
@@ -10,6 +10,7 @@ export const ModalContainer = styled.div`
   flex-direction: column;
   background-color: ${C_WHITE};
   border-radius: 1rem;
+  box-shadow 0 0 1rem ${C_OVERLAY_25};
 `;
 
 export const ModalHeader = styled.header`
