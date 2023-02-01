@@ -3,8 +3,8 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-
 const TerserPlugin = require('terser-webpack-plugin');
+const package = require('./package.json');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -78,7 +78,9 @@ module.exports = {
     ].filter(Boolean),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
+        publicPath: isProduction
+            ? package.homepage
+            : '/',
         filename: isProduction
             ? 'rails-common-lib.min.js'
             : 'rails-common-lib.js',
