@@ -3,6 +3,8 @@ import hrVideo from '@/assets/video/hr.mp4';
 import { Line, Speech } from '@/components';
 import { Column, Wrapper } from '@/styled/dialogs';
 
+export const LOCKED_MODALS = new Set<string>();
+
 export const MODALS_CONFIG = [
   {
     id: 'hr',
@@ -15,7 +17,7 @@ export const MODALS_CONFIG = [
         <Column>
           <Speech delay={1.5}>
             {[
-              'HR-специалист - первый человек, которого ты встретишь',
+              'HR-специалист — первый человек, которого ты встретишь',
               'при знакомстве со своим новым местом работы.',
               'Коллеги из HR помогут тебе с адаптацией, а ещё подробно расскажут о твоей роли',
               'в компании и о том, как всё устроено!',
