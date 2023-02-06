@@ -24,9 +24,11 @@ export const Button = styled.button`
   border-radius: 2rem;
   color: ${C_WHITE};
   cursor: pointer;
+  transition: background-color .25s, border-color .25s, color .25s;
 
   &:hover {
     background-color: ${C_WHITE};
+    border-color: ${C_WHITE};
     color: ${props => props.color || C_PRIMARY};
   }
 `;

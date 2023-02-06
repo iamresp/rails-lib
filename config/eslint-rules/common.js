@@ -139,10 +139,7 @@ module.exports = {
       props: false
     }
   ],
-  'no-return-assign': [
-    'error',
-    'always'
-  ],
+  'no-return-assign': 'off',
   'eol-last': ['error', 'always'],
   'space-before-function-paren': ['error', 'always'],
   'operator-linebreak': ['error', 'before'],
