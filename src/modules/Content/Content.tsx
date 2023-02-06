@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Modal } from '@/components';
-import { MODALS_CONFIG } from '@/constants/modals';
+import { LOCKED_MODALS, MODALS_CONFIG } from '@/constants/modals';
 import { ModalContext, ModalProvider } from '@/providers';
 import { GlobalStyle } from '@/styled/global';
 
@@ -16,6 +16,11 @@ export const Content = () => {
   // @ts-expect-error
   window.openModal = (id: string) => {
     openModal?.(id);
+  };
+
+  // @ts-expect-error
+  window.unlockModal = (id: string) => {
+    LOCKED_MODALS.delete(id);
   };
 
   return (

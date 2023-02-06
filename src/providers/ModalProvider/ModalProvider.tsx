@@ -1,4 +1,5 @@
 import React from 'react';
+import { LOCKED_MODALS } from '@/constants/modals';
 import { ModalContext } from './context';
 import { TModalContextValues } from './types';
 
@@ -21,9 +22,13 @@ export const ModalProvider: React.FC<TProps> = ({ children }) => {
   };
 
   const openModal = (modalId: string | undefined): void => {
-    updateModalState({
-      modalId,
-    });
+    if (!modalId || !LOCKED_MODALS.has(modalId)) {
+      updateModalState({
+        modalId,
+      });
+
+      if (modalId) LOCKED_MODALS.add(modalId);
+    }
   };
 
   return (
