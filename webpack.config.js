@@ -60,7 +60,7 @@ module.exports = {
 
             },
             {
-                test: /\.(woff|woff2|eot|ttf)$/,
+                test: /\.(woff|woff2|eot|ttf|png|mp4)$/,
                 type: 'asset/resource',
             },
         ],
