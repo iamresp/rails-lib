@@ -12,7 +12,7 @@ export const DialogLine = styled.h3`
   color: ${C_WHITE};
   white-space: nowrap;
   overflow: hidden;
-  font-family: consolas;
+  font-family: 'Noto Sans Mono';
   display: inline-flex;
 
   @keyframes type {
