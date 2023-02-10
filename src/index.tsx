@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
-import { detectCollision, getDirection, getObject } from './utils/physics';
-import { populateWindow } from './utils/window';
+import {
+  detectCollision,
+  getDirection,
+  getObstacles,
+  getObject,
+  populateWindow,
+} from './utils';
 
 /**
  * Экспоуз методов для взаимодействия с физикой в контекст окна.
@@ -10,6 +15,7 @@ import { populateWindow } from './utils/window';
 populateWindow({
   detectCollision,
   getDirection,
+  getObstacles,
   getObject,
 });
 

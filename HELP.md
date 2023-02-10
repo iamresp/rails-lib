@@ -6,13 +6,14 @@
 
 ## Использование WDS и rails-project
 
-Для использования подключения rails-lib в dev-режиме к rails-project необходимо заменить URL скрипта сборки библиотеки в rails-project на `http://localhost:3000/rails-common-lib.js` (с поправкой на использ. порт, `3000` по умолчанию).
+Для использования подключения rails-lib в dev-режиме к rails-project необходимо заменить URL скрипта сборки библиотеки в rails-project на `http://localhost:3000/rails-common-lib.js` (с поправкой на использ. порт, `3000` по умолчанию; в dev-среде в имени файла отсутствует суффикс `.min`).
 
 ## Доступные глобальные функции (св-ва объекта `window`):
 
 `detectCollision` - полностью определяет столкновение и его направление, задаёт объект столкновения для `getObject`.\
 `getObject` - используется вместе с `detectCollision`, возвращает объект, с которым произошло столкновение (или `undefined`, если столкновения нет).\
 `getDirection` - высчитывает направление столкновения между двумя объектами.
+`getObstacles` - получает на вход `HTMLObjectElement` карты препятствий и список (`HTMLCollection`, напр. `querySelectorAll`) маркеров.
 
 ## Пример ручной реализации функции `detectCollision`:
 
@@ -29,7 +30,6 @@ function newDetectCollision (player, objects) {
 
     collidedObj = undefined; // очищаем значение collidedObj
 
-    // 1) проверяем наличие столкновений
     for (let i = 0; i < objects.length; i++) {
         objectBox = objects[i].getBoundingClientRect();
 
@@ -40,13 +40,8 @@ function newDetectCollision (player, objects) {
             objectBox.bottom >= playerBox.top
         ) {
             collidedObj = objects[i];
-            break;
+            return getDirection(playerBox, objectBox);
         }
-    }
-
-    // 2) если столкновение произошло, определяем направление столкновения
-    if (collidedObj) {
-        return getDirection(playerBox, objectBox);
     }
 }
 ```
