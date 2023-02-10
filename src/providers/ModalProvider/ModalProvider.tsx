@@ -1,11 +1,8 @@
 import React from 'react';
 import { LOCKED_MODALS } from '@/constants/modals';
+import { INITIAL_STATE } from './constants';
 import { ModalContext } from './context';
 import { TModalContextValues } from './types';
-
-const INITIAL_STATE = {
-  modalId: undefined,
-};
 
 type TProps = {
   children: React.ReactNode;
@@ -21,9 +18,14 @@ export const ModalProvider: React.FC<TProps> = ({ children }) => {
     setModalState(prevContext => ({ ...prevContext, ...newContext }));
   };
 
-  const openModal = (modalId: string | undefined): void => {
+  const setModal = (modalId: string | undefined): void => {
     if (!modalId || !LOCKED_MODALS.has(modalId)) {
+      let { modalsCount } = modalState;
+
+      ++modalsCount;
+
       updateModalState({
+        modalsCount,
         modalId,
       });
 
@@ -34,7 +36,7 @@ export const ModalProvider: React.FC<TProps> = ({ children }) => {
   return (
     <ModalContext.Provider value={{
       ...modalState,
-      openModal,
+      setModal,
     }}
     >
       {children}

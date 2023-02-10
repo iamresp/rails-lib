@@ -8,14 +8,14 @@ export const LOCKED_MODALS = new Set<string>();
 export const MODALS_CONFIG = [
   {
     id: 'hr',
-    title: <Line time={1} delay={0.25}>Привет!</Line>,
+    title: <Line time={0.5} delay={0.25}>Привет!</Line>,
     children: (
       <Wrapper>
         <Column>
           <video src={hrVideo} autoPlay></video>
         </Column>
         <Column>
-          <Speech delay={1.5}>
+          <Speech delay={1}>
             {[
               'HR-специалист — первый человек, которого ты встретишь',
               'при знакомстве со своим новым местом работы.',

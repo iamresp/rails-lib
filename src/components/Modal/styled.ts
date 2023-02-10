@@ -49,7 +49,7 @@ export const ModalBody = styled.article`
   }
 `;
 
-export const ModalActions = styled.footer`
+export const ModalFooter = styled.footer`
   grid-area: footer;
   width: 100%;
   height: 5rem;

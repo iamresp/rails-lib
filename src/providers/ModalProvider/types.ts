@@ -3,11 +3,12 @@
  */
 export type TModalContextValues = {
   modalId?: string;
+  modalsCount: number;
 };
 
 /**
  * Тип контекста модалок.
  */
 export type TModalContext = TModalContextValues & {
-  openModal?: (id: string | undefined) => void;
+  setModal?: (id: string | undefined) => void;
 };

@@ -20,12 +20,12 @@ export const Speech = React.memo<TProps>(({ children, delay = 0, time = SPEECH_A
   return (
     <>
       {
-        children.map((line, i) => (
+        children.map((line, i, { length }) => (
           <Line
             key={line}
             delay={lineDelay.current += time}
             time={time}
-            hasBlink={i === children.length - 1}
+            hasBlink={i === length - 1}
           >
             {line}
           </Line>
