@@ -4,24 +4,28 @@ import { Modal } from '@/components';
 import { LOCKED_MODALS, MODALS_CONFIG } from '@/constants/modals';
 import { ModalContext, ModalProvider } from '@/providers';
 import { GlobalStyle } from '@/styled/global';
+import { populateWindow } from '@/utils/window';
 
 export const Content = () => {
-  const { modalId, openModal } = React.useContext(ModalContext);
+  const { modalId, setModal } = React.useContext(ModalContext);
 
   const handleModalClose = React.useCallback(() => {
-    openModal?.(undefined);
-  }, [openModal]);
+    setModal?.(undefined);
+  }, [setModal]);
 
-  // так делать обычно совсем не стоит, но здесь нам нужен наиболее примитивный способ вызова нашего функционала
-  // @ts-expect-error
-  window.openModal = (id: string) => {
-    openModal?.(id);
+  const openModal = (id: string) => {
+    setModal?.(id);
   };
 
-  // @ts-expect-error
-  window.unlockModal = (id: string) => {
+  const unlockModal = (id: string) => {
     LOCKED_MODALS.delete(id);
   };
+
+  // так делать обычно совсем не стоит, но здесь нам нужен наиболее примитивный способ вызова нашего функционала
+  populateWindow({
+    openModal,
+    unlockModal,
+  });
 
   return (
     <>

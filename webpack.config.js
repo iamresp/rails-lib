@@ -4,9 +4,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const {config} = require('dotenv');
+
 const package = require('./package.json');
 
+config();
+
 const isProduction = process.env.NODE_ENV === 'production';
+const port = process.env.DEV_SERVER_PORT ?? 3000;
 
 module.exports = {
     stats: 'errors-warnings',
@@ -30,7 +35,12 @@ module.exports = {
         },
         hot: true,
         historyApiFallback: true,
-        port: 3000,
+        port,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+            'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+        },
     },
     performance: {
         hints: false,
@@ -80,7 +90,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: isProduction
             ? package.homepage
-            : '/',
+            : `http://localhost:${port}/`,
         filename: isProduction
             ? 'rails-common-lib.min.js'
             : 'rails-common-lib.js',

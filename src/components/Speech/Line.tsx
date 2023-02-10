@@ -19,9 +19,11 @@ export const Line: React.FC<TProps> = ({ children, hasBlink, delay = 0, time = S
 
   React.useEffect(() => {
     if (!isVisible) {
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         setIsVisible(true);
       }, delay * 1000);
+
+      return () => clearTimeout(timeout);
     }
   }, []);
 
