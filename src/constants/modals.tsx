@@ -5,6 +5,7 @@ import swVideo from '@/assets/video/sw.mp4';
 import pmoVideo from '@/assets/video/pmo.mp4';
 import backVideo from '@/assets/video/back.mp4';
 import testVideo from '@/assets/video/test.mp4';
+import analystVideo from '@/assets/video/analyst.mp4';
 import { Line, Speech } from '@/components';
 import { Column, Wrapper } from '@/styled/dialogs';
 
@@ -129,6 +130,29 @@ export const MODALS_CONFIG = [
               'Тестер: коллеги из практики тестирования ',
               'проверяют качество разрабатываемого продукта, ',
               'а также осуществляют поиск, анализ и регистрацию дефектов',
+            ]}
+          </Speech>
+        </Column>
+      </Wrapper>
+    ),
+  },
+  {
+    id: 'analyst',
+    title: <Line time={1} delay={0.25}>Привет!</Line>,
+    children: (
+      <Wrapper>
+        <Column>
+          <video src={analystVideo} autoPlay></video>
+        </Column>
+        <Column>
+          <Speech delay={1.5}>
+            {[
+              'Бизнес аналитик - связующее звено между заказчиком и командой разработки:',
+              'Он собирает пожелания заказчика, оформляет по ним технические требования.',
+              'Требования берет в работу команда разработки, а также по ним',
+              'проводится тестирование программного продукта.',
+              'Также аналитик контролирует процесс разработки, и проводит',
+              'демонстрации реализованного функционала клиентам :)',
             ]}
           </Speech>
         </Column>
