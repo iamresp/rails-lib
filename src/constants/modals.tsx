@@ -1,8 +1,10 @@
 import React from 'react';
 import hrVideo from '@/assets/video/hr.mp4';
-import hr2Video from '@/assets/video/hr2.mp4';
-import hr3Video from '@/assets/video/hr3.mp4';
-import hr4Video from '@/assets/video/hr4.mp4';
+import omVideo from '@/assets/video/om.mp4';
+import swVideo from '@/assets/video/sw.mp4';
+import pmoVideo from '@/assets/video/pmo.mp4';
+import backVideo from '@/assets/video/back.mp4';
+import testVideo from '@/assets/video/test.mp4';
 import { Line, Speech } from '@/components';
 import { Column, Wrapper } from '@/styled/dialogs';
 
@@ -31,12 +33,12 @@ export const MODALS_CONFIG = [
     ),
   },
   {
-    id: 'hr2',
+    id: 'om',
     title: <Line time={1} delay={0.25}>Привет!</Line>,
     children: (
       <Wrapper>
         <Column>
-          <video src={hr2Video} autoPlay></video>
+          <video src={omVideo} autoPlay></video>
         </Column>
         <Column>
           <Speech delay={1.5}>
@@ -54,12 +56,12 @@ export const MODALS_CONFIG = [
     ),
   },
   {
-    id: 'hr3',
+    id: 'sw',
     title: <Line time={1} delay={0.25}>Привет!</Line>,
     children: (
       <Wrapper>
         <Column>
-          <video src={hr3Video} autoPlay></video>
+          <video src={swVideo} autoPlay></video>
         </Column>
         <Column>
           <Speech delay={1.5}>
@@ -74,12 +76,12 @@ export const MODALS_CONFIG = [
     ),
   },
   {
-    id: 'hr4',
+    id: 'pmo',
     title: <Line time={1} delay={0.25}>Привет!</Line>,
     children: (
       <Wrapper>
         <Column>
-          <video src={hr4Video} autoPlay></video>
+          <video src={pmoVideo} autoPlay></video>
         </Column>
         <Column>
           <Speech delay={1.5}>
@@ -87,6 +89,46 @@ export const MODALS_CONFIG = [
               'PMO специалист - это помошник менеджера проекта.',
               'Его основная задача - администрирование и координация задач внутри команды,',
               'а также контроль сроков их выполнения',
+            ]}
+          </Speech>
+        </Column>
+      </Wrapper>
+    ),
+  },
+  {
+    id: 'back',
+    title: <Line time={1} delay={0.25}>Привет!</Line>,
+    children: (
+      <Wrapper>
+        <Column>
+          <video src={backVideo} autoPlay></video>
+        </Column>
+        <Column>
+          <Speech delay={1.5}>
+            {[
+              'Backend разработчик -  пишет код, ',
+              'проверяет его на качество и участвует в ',
+              'дальнейшем сопровождении, если это необходимо ',
+            ]}
+          </Speech>
+        </Column>
+      </Wrapper>
+    ),
+  },
+  {
+    id: 'test',
+    title: <Line time={1} delay={0.25}>Привет!</Line>,
+    children: (
+      <Wrapper>
+        <Column>
+          <video src={testVideo} autoPlay></video>
+        </Column>
+        <Column>
+          <Speech delay={1.5}>
+            {[
+              'Тестер: коллеги из практики тестирования ',
+              'проверяют качество разрабатываемого продукта, ',
+              'а также осуществляют поиск, анализ и регистрацию дефектов',
             ]}
           </Speech>
         </Column>
